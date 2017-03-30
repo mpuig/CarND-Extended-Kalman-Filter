@@ -1,7 +1,10 @@
-# Extended Kalman Filter Project Starter Code
+# Extended Kalman Filter Project
 Self-Driving Car Engineer Nanodegree Program
 
 ---
+## Overview
+
+Implementation of a an Extended Kalman Filter in C++, loading data from sample files with information from Radar and Lidar sensors.
 
 ## Dependencies
 
@@ -27,17 +30,13 @@ Self-Driving Car Engineer Nanodegree Program
     - eg. `./ExtendedKF ../data/sample-laser-radar-measurement-data-1.txt output.txt`
 
 
-## Setup Python environment
+## Optional setup Python environment and data visualization
+
+An included jupyter notebook can be used to explore the data (measurements, estimations and ground truth).
+
   ```
      conda env create -f environment.yml
      source activate CarND-Extended-Kalman-Filter
+     jupyter notebook ekf-visualization.ipynb
   ```
-
-## Generating Additional Data
-
-This is optional!
-
-If you'd like to generate your own radar and lidar data, see the
-[utilities repo](https://github.com/udacity/CarND-Mercedes-SF-Utilities) for
-Matlab scripts that can generate additional data.
 
