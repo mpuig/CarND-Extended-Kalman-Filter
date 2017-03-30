@@ -83,10 +83,18 @@ VectorXd Tools::fromCartesianToPolar(const VectorXd& x_state) {
 
   VectorXd z_pred(3);
 
-  const double distance = sqrt(pow(x_state[0], 2) + pow(x_state[1], 2));
+  // recover state parameters
+  float px = x_state(0);
+  float py = x_state(1);
+  float vx = x_state(2);
+  float vy = x_state(3);
 
-  if(distance < 1e-4)
+  float distance = sqrt(px * px + py * py);
+
+  // check division by zero
+  if(fabs(distance) < 1e-4)
   {
+      cout << "fromCartesianToPolar() - Error - Division by Zero" << endl;
       // Set angle and distance change rate to zero for very small movement
       z_pred << distance, 0.0, 0.0;
   }
@@ -97,8 +105,8 @@ VectorXd Tools::fromCartesianToPolar(const VectorXd& x_state) {
 ​​    from Cartesian coordinates to polar coordinates: (ρ, ​ϕ, ​ρ)
     */
       z_pred << distance,
-                atan2(x_state[1], x_state[0]),
-                (x_state[0] * x_state[2] + x_state[1] * x_state[3]) / distance;
+                atan2(py, px),
+                (px * vx + py * vy) / distance;
   }
 
   return z_pred;
