@@ -1,0 +1,13 @@
+name: CarND-Extended-Kalman-Filter
+dependencies:
+- python=3.5
+- pip >= 9
+- jupyter
+- numpy
+- pandas
+- flask
+- plotly
+- pip:
+  - eventlet
+  - gevent_socketio
+  - flask-socketio
